@@ -1,0 +1,11 @@
+  - name: "get-the-weather"
+    signals:
+      - order: "what is the weather in {{ location }}"
+    neurons:
+      - openweathermap:
+          api_key: "fdfba4097c318aed7836b2a85a6a05ef"
+          lang: "en"
+          temp_unit: "celsius"
+          location: "{{ location }}"
+          say_template:
+          - "Today at {{ location }}, the weather is {{ current['weather_status'] }} with a temperature of{{ current['temperature'] }} degrees"
